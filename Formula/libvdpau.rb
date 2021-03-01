@@ -19,7 +19,7 @@ class Libvdpau < Formula
 
   depends_on "meson" => [:build]
   depends_on "ninja" => [:build]
-  depends_on "pkg-config" => [:build]
+  depends_on "pkg-config" => [:build, :test]
   depends_on "libx11"
   depends_on "libxext"
   depends_on "xorgproto"
@@ -32,6 +32,6 @@ class Libvdpau < Formula
     end
   end
   test do
-    system "echo", "0"
+    assert_match "-I#{include}", shell_output("pkg-config --cflags vdpau")
   end
 end
