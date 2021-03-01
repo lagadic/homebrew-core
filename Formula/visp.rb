@@ -31,12 +31,6 @@ class Visp < Formula
   uses_from_macos "libxml2"
   uses_from_macos "zlib"
 
-  # from first commit at https://github.com/lagadic/visp/pull/768 - remove in next release
-  patch do
-    url "https://github.com/lagadic/visp/commit/61c8beb8442f9e0fe7df8966e2e874929af02344.patch?full_index=1"
-    sha256 "429bf02498fc03fff7bc2a2ad065dea6d8a8bfbde6bb1adb516fa821b1e5c96f"
-  end
-
   # Fixes build on OpenCV >= 4.4.0
   # Extracted from https://github.com/lagadic/visp/pull/795
   patch :DATA
