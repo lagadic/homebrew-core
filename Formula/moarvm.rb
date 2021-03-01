@@ -27,8 +27,8 @@ class Moarvm < Formula
   conflicts_with "rakudo-star", because: "rakudo-star currently ships with moarvm included"
 
   resource "nqp" do
-    url "https://github.com/perl6/nqp/releases/download/2020.12/nqp-2020.12.tar.gz"
-    sha256 "fd445b3c3b844a2fc523dc567b2a65c4dc2cc9a3f42ef2e860ef71174823068e"
+    url "https://github.com/Raku/nqp/releases/download/2021.02/nqp-2021.02.tar.gz"
+    sha256 "d24b1dc8c9f5e743787098a19c9d17b75f57dd34d293716d5b15b9105037d4ef"
   end
 
   def install
