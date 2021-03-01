@@ -17,25 +17,21 @@ class Libvdpau < Formula
     sha256 mojave:        "59980ec6bf90b676354ddda5e3c93a6240c4564d1c01aa35b1f1aa804d7b949a"
   end
 
-  depends_on "pkg-config" => [:build, :test]
+  depends_on "meson" => [:build]
+  depends_on "ninja" => [:build]
+  depends_on "pkg-config" => [:build]
   depends_on "libx11"
   depends_on "libxext"
   depends_on "xorgproto"
 
   def install
-    on_macos do
-      ENV.append "LDFLAGS", "-lx11"
+    mkdir "build" do
+      system "meson", *std_meson_args, ".."
+      system "ninja"
+      system "ninja", "install"
     end
-    system "./configure", "--prefix=#{prefix}",
-                          "--sysconfdir=#{etc}",
-                          "--disable-dependency-tracking",
-                          "--disable-silent-rules",
-                          "--enable-dri2"
-    system "make"
-    system "make", "install"
   end
-
   test do
-    assert_match "-I#{include}", shell_output("pkg-config --cflags vdpau")
+    system "echo", "0"
   end
 end
