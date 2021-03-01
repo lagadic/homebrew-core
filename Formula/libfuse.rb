@@ -1,8 +1,8 @@
 class Libfuse < Formula
   desc "Reference implementation of the Linux FUSE interface"
   homepage "https://github.com/libfuse/libfuse"
-  url "https://github.com/libfuse/libfuse/releases/download/fuse-2.9.8/fuse-2.9.8.tar.gz"
-  sha256 "5e84f81d8dd527ea74f39b6bc001c874c02bad6871d7a9b0c14efb57430eafe3"
+  url "https://github.com/libfuse/libfuse/archive/fuse-3.10.2.tar.gz"
+  sha256 "a16f93cc083264afd0d2958a0dc88f24c6c5d40a9f3842c645b1909e13edb75f"
   license any_of: ["LGPL-2.1-only", "GPL-2.0-only"]
   head "https://github.com/libfuse/libfuse.git"
 
