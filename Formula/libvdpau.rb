@@ -17,8 +17,8 @@ class Libvdpau < Formula
     sha256 mojave:        "59980ec6bf90b676354ddda5e3c93a6240c4564d1c01aa35b1f1aa804d7b949a"
   end
 
-  depends_on "meson" => [:build]
-  depends_on "ninja" => [:build]
+  depends_on "meson" => :build
+  depends_on "ninja" => :build
   depends_on "pkg-config" => [:build, :test]
   depends_on "libx11"
   depends_on "libxext"
