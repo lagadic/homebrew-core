@@ -29,7 +29,7 @@ class Flank < Formula
           orientation: portrait
     EOS
 
-    output = shell_output("#{bin}/flank android doctor")
+    output = shell_output("#{bin}/flank android run")
     assert_match "version: v#{version}", output
     assert_match "Valid yml file", output
   end
