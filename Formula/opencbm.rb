@@ -26,13 +26,6 @@ class Opencbm < Formula
   depends_on "cc65" => :build
   depends_on "libusb-compat"
 
-  # Fix "usb_echo_test.c:32:10: fatal error: 'endian.h' file not found"
-  # Reported 24 Nov 2017 to www-201506 AT spiro DOT trikaliotis DOT net
-  patch do
-    url "https://raw.githubusercontent.com/Homebrew/formula-patches/48bd0fd/opencbm/endian.diff"
-    sha256 "2221fab81cdc0ca0cfbd55eff01ae3cd10b4e8bfca86082c7cbffb0b73b651cf"
-  end
-
   def install
     # This one definitely breaks with parallel build.
     ENV.deparallelize
