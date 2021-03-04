@@ -53,7 +53,7 @@ class MoltenVk < Formula
   resource "SPIRV-Tools" do
     # External/glslang/known_good.json
     url "https://github.com/KhronosGroup/SPIRV-Tools.git",
-        revision: "07383c65d92896d07b305675f8c78a61ac88246e"
+        revision: "895927bd3f2d653f40cebab55aa6c7eabde30a86"
   end
 
   resource "SPIRV-Headers" do
