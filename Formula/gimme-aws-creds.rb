@@ -15,6 +15,7 @@ class GimmeAwsCreds < Formula
   end
 
   depends_on "python@3.9"
+  depends_on "rust"
 
   uses_from_macos "libffi"
 
