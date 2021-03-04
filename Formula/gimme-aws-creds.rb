@@ -84,8 +84,8 @@ class GimmeAwsCreds < Formula
   end
 
   resource "okta" do
-    url "https://files.pythonhosted.org/packages/a2/b2/1fb4eee8a0076efcf7f14fb7fa2830c9a973b410d2c5d7ad568187747f8e/okta-1.4.0.tar.gz"
-    sha256 "4502825eb36ac0427198a86e7b2c10345dd5a37b1685d82acf5d392aa8ae07f3"
+    url "https://files.pythonhosted.org/packages/e8/2a/1c1bae7ed0b429cfe04caaff4ec06383669b651b315328b15f87ab67d347/okta-0.0.4.tar.gz"
+    sha256 "53e792c68d3684ff4140b4cb1c02af3821090368f8110fde54c0bdb638449332"
   end
 
   resource "pycparser" do
