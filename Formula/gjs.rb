@@ -4,12 +4,12 @@ class Gjs < Formula
   url "https://download.gnome.org/sources/gjs/1.66/gjs-1.66.2.tar.xz"
   sha256 "bd7f5f8b171277cc0bb9ee1754b0240b62f06a76b8b18c968cf471b34ab34e59"
   license all_of: ["LGPL-2.0-or-later", "MIT"]
-  revision 1
+  revision 2
 
   bottle do
-    sha256 big_sur:  "e8b6bb7eadddbffbae7726498add427ed12f8e14f7f284abb00cc87069bc0355"
-    sha256 catalina: "616ef4fc9b631b395af743be657c64879378303b3f5ccb523103b007a1ca4e75"
-    sha256 mojave:   "afc39b8fff6ddaadd91df0847db00cdc74252f9e186bfb8eed7bf7fbb40572cb"
+    sha256 big_sur:  "a065bebe7a6d0418e0fc35aed79ff6080691305f19bcc78de6bb81405ab73ee3"
+    sha256 catalina: "f630015b9b05f59c731cba6f99bacbd11be5ca6ac865b8a29f496c0fb1d34688"
+    sha256 mojave:   "150190528f20702178f5ad8391ad85b8f576eefa0f40b9bff94191603961dbf0"
   end
 
   depends_on "meson" => :build
@@ -35,8 +35,8 @@ class Gjs < Formula
   end
 
   resource "mozjs78" do
-    url "https://archive.mozilla.org/pub/firefox/releases/78.7.1esr/source/firefox-78.7.1esr.source.tar.xz"
-    sha256 "5042783e2cf94d21dd990d2083800f05bc32f8ba65532a715c7be3cb7716b837"
+    url "https://archive.mozilla.org/pub/firefox/releases/78.8.0esr/source/firefox-78.8.0esr.source.tar.xz"
+    sha256 "1cf2dfdee2e31fd0a5ecced6275a33fa11bee1d2a7c65e23350b26992584a110"
   end
 
   def install
@@ -64,12 +64,6 @@ class Gjs < Formula
                 "-install_name $(_LOADER_PATH)/$(SHARED_LIBRARY) ",
                 "-install_name #{lib}/$(SHARED_LIBRARY) "
       inreplace "old-configure", "-Wl,-executable_path,${DIST}/bin", ""
-
-      # Fix Big Sur build
-      # Backport of https://hg.mozilla.org/mozilla-central/rev/c991b4d04c08d6fdd8228d9cf98c1f9d3c24f9ac
-      inreplace "python/mozbuild/mozbuild/virtualenv.py",
-                "os.environ['MACOSX_DEPLOYMENT_TARGET'] = sysconfig_target",
-                "os.environ['MACOSX_DEPLOYMENT_TARGET'] = str(sysconfig_target)"
 
       mkdir("build") do
         xy = Language::Python.major_minor_version "python3"

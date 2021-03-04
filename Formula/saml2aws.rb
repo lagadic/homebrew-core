@@ -2,15 +2,15 @@ class Saml2aws < Formula
   desc "Login and retrieve AWS temporary credentials using a SAML IDP"
   homepage "https://github.com/Versent/saml2aws"
   url "https://github.com/Versent/saml2aws.git",
-  tag:      "v2.28.2",
-  revision: "2147b333a6f9b8769adeb744e0bee188d913a524"
+  tag:      "v2.28.3",
+  revision: "3251e9c0edf7a35509d172ed6c8fa16cc50175bf"
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_big_sur: "3a15ac811a4276bca7ffd9e7c90f8e5b260c78e82d6001f8e1b61c86010a6051"
-    sha256 cellar: :any_skip_relocation, big_sur:       "02c8c34a19c9b252b0ccf3daad37e2cffa9881ac987a3e74b345e3662ce17dc4"
-    sha256 cellar: :any_skip_relocation, catalina:      "cf5705ec3df26799def37c758a884ea4dd8952bae57f758b1d290e6e506d98c4"
-    sha256 cellar: :any_skip_relocation, mojave:        "f049679b8169b048ecb4d16dda5b818a5f8d4ea2ee62b771ee7bb8b1348e1889"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "33fe29a31364a6c8094f96551aa304346c91e34933c1b1b9b8c9326dd739e8e9"
+    sha256 cellar: :any_skip_relocation, big_sur:       "3aea6fbcde8d895898682aed9907a999ce752b51a54d12a6fae45335c20b1462"
+    sha256 cellar: :any_skip_relocation, catalina:      "f06525545549daf92a22f46ebffab8d3dc0ae074577d80476967d6f45674fd71"
+    sha256 cellar: :any_skip_relocation, mojave:        "7cd5d66ea3404a6ed0d5ee789f1b27400beb255945115bce619538430eac4111"
   end
 
   depends_on "go" => :build

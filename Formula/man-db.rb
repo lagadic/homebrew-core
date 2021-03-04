@@ -5,6 +5,7 @@ class ManDb < Formula
   mirror "https://download-mirror.savannah.gnu.org/releases/man-db/man-db-2.9.4.tar.xz"
   sha256 "b66c99edfad16ad928c889f87cf76380263c1609323c280b3a9e6963fdb16756"
   license "GPL-2.0-or-later"
+  revision 1
 
   livecheck do
     url "https://download.savannah.gnu.org/releases/man-db/"
@@ -12,15 +13,15 @@ class ManDb < Formula
   end
 
   bottle do
-    rebuild 1
-    sha256 arm64_big_sur: "901330a943645b6943c0689f4ff0f3ed7f9a1a83263493518f524e38c85df675"
-    sha256 big_sur:       "090f572b28b3848e07f5ceb96dd4a61b7b84df61273beb179a485f1674db06ff"
-    sha256 catalina:      "c145def495a7443af7de1f93ef9cf382c5441965ca6ebc534b6dbe5475aeee64"
-    sha256 mojave:        "df2a07a6c798e051b9ddcaaacab818ab9a5d3cf33164bd5af6ea5706255c6b76"
+    sha256 arm64_big_sur: "17a3f7d1314e32d74725f1f4bfcf7b715d60d8aff9b5a61d0ed5bbde2840f103"
+    sha256 big_sur:       "767c60fc61f4af286f60753ffca8297baaad41696e38eac2c9e12dc442ffb822"
+    sha256 catalina:      "b7f2d5cebcfe7727be74347a05d8d95da9759710f8f25703dd753f4c44af4158"
+    sha256 mojave:        "fb26c658449765651d30d47d08f60bd647195e35ff7afbe1bbcc48c1ec2748dd"
   end
 
   depends_on "pkg-config" => :build
   depends_on "groff"
+  depends_on "libpipeline"
 
   uses_from_macos "zlib"
 
@@ -28,26 +29,7 @@ class ManDb < Formula
     depends_on "gdbm"
   end
 
-  resource "libpipeline" do
-    url "https://download.savannah.gnu.org/releases/libpipeline/libpipeline-1.5.3.tar.gz"
-    sha256 "5dbf08faf50fad853754293e57fd4e6c69bb8e486f176596d682c67e02a0adb0"
-  end
-
   def install
-    resource("libpipeline").stage do
-      system "./configure",
-        "--disable-dependency-tracking",
-        "--disable-silent-rules",
-        "--prefix=#{buildpath}/libpipeline",
-        "--enable-static",
-        "--disable-shared"
-      system "make"
-      system "make", "install"
-    end
-
-    ENV["libpipeline_CFLAGS"] = "-I#{buildpath}/libpipeline/include"
-    ENV["libpipeline_LIBS"] = "-L#{buildpath}/libpipeline/lib -lpipeline"
-
     args = %W[
       --disable-dependency-tracking
       --disable-silent-rules

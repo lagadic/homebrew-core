@@ -1,17 +1,15 @@
 class Smali < Formula
   desc "Assembler/disassembler for Android's Java VM implementation"
   homepage "https://github.com/JesusFreke/smali"
-  url "https://github.com/JesusFreke/smali/archive/v2.4.0.tar.gz"
-  sha256 "6a9014ecffd7d374f1b9e3c236b11d18a8d8f9c33dbb8ca171c79cc243a0f902"
+  url "https://github.com/JesusFreke/smali/archive/v2.5.1.tar.gz"
+  sha256 "cc7e0e5e8412075ad3c2ec1b3773fa529f0480ca290742c4292ef81e8e8d6f82"
   license "BSD-3-Clause"
-  revision 1
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_big_sur: "f067f72f005ce05fa14b9b32cad7129ba29c6dde59af5494461471eec4c46c9e"
-    sha256 cellar: :any_skip_relocation, big_sur:       "c795c4245df42dd3bf881fa5b9e034e55186efb517cf5a72c6fc7c603283bc89"
-    sha256 cellar: :any_skip_relocation, catalina:      "2a17c236e4dea10abb4cfc8383abd72204dfa925e72ab10bf6aaaa02875af266"
-    sha256 cellar: :any_skip_relocation, mojave:        "39f6422066f4b61496c4ce287f37a7ee1069926eea698a6dbd15a131e14a7616"
-    sha256 cellar: :any_skip_relocation, high_sierra:   "7b90641feb3ce88a706bee6c8b5ca3a231f4d3c2ce138d7fabe5d470574d77f3"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "981c11bc45c80e77a6ff26c2bfc8929b777ed143643ecb532a9c6d4b8396c070"
+    sha256 cellar: :any_skip_relocation, big_sur:       "98ab2cc87f4b5e204eb3fa61348c9eed09a446b0b78b97b8e5aa9eb297197fe2"
+    sha256 cellar: :any_skip_relocation, catalina:      "6e4881eb8ab09baa9ecb83587b17465be09e6d75a8ba26cad624078fd633f111"
+    sha256 cellar: :any_skip_relocation, mojave:        "3a7ceafe3219a9de33ab07257f8214a3eab096625a937bb5c365a4485b0314e1"
   end
 
   depends_on "gradle" => :build

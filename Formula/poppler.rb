@@ -1,22 +1,22 @@
 class Poppler < Formula
   desc "PDF rendering library (based on the xpdf-3.0 code base)"
   homepage "https://poppler.freedesktop.org/"
-  url "https://poppler.freedesktop.org/poppler-21.02.0.tar.xz"
-  sha256 "5c14759c99891e6e472aced6d5f0ff1dacf85d80cd9026d365c55c653edf792c"
+  url "https://poppler.freedesktop.org/poppler-21.03.0.tar.xz"
+  sha256 "fd51ead4aac1d2f4684fa6e7b0ec06f0233ed21667e720a4e817e4455dd63d27"
   license "GPL-2.0-only"
   revision 1
   head "https://gitlab.freedesktop.org/poppler/poppler.git"
 
   livecheck do
     url :homepage
-    regex(/href=.*?poppler[._-]v?(\d+(?:\.\d+)*)\.t/i)
+    regex(/href=.*?poppler[._-]v?(\d+(?:\.\d+)+)\.t/i)
   end
 
   bottle do
-    sha256 arm64_big_sur: "0e578c37aa3b42d81b080004130978b892f823ae92c1239a7f60a24c3ebd3571"
-    sha256 big_sur:       "8436b17525a00400cb9152219e66b4331af9f7d91ed4c21aadfc0398466c7456"
-    sha256 catalina:      "55cc2ef2fd45d91cee4158b9077e58ef4971c0aafef37e90725ea5c8d1d55b6c"
-    sha256 mojave:        "cae1116097c9080e62e195f972746c09fa1f4a3e49232ea96a3bf0930a229b67"
+    sha256 arm64_big_sur: "90b6ef0d795977a282db75c4a5caed550d16f88ef41d6e290b3ede2d10e25d0e"
+    sha256 big_sur:       "437360eb64c1bbbe8b403f9a89d8bbbb46daeb5c9e3e94315efbc74605c0eac0"
+    sha256 catalina:      "551f5398999e8de473adaf26e9cba9a07871cfe3f488778cae3cdaffd25ba7db"
+    sha256 mojave:        "d672b3810ad4f8ef2fef83ac3ab9b28e6ea9487090a0f5796579c90aba5ee156"
   end
 
   depends_on "cmake" => :build
@@ -33,7 +33,7 @@ class Poppler < Formula
   depends_on "little-cms2"
   depends_on "nss"
   depends_on "openjpeg"
-  depends_on "qt"
+  depends_on "qt@5"
 
   uses_from_macos "gperf" => :build
   uses_from_macos "curl"
@@ -53,8 +53,8 @@ class Poppler < Formula
       -DBUILD_GTK_TESTS=OFF
       -DENABLE_CMS=lcms2
       -DENABLE_GLIB=ON
-      -DENABLE_QT5=OFF
-      -DENABLE_QT6=ON
+      -DENABLE_QT5=ON
+      -DENABLE_QT6=OFF
       -DENABLE_UNSTABLE_API_ABI_HEADERS=ON
       -DWITH_GObjectIntrospection=ON
     ]
@@ -75,7 +75,7 @@ class Poppler < Formula
     [
       "#{lib}/libpoppler-cpp.dylib",
       "#{lib}/libpoppler-glib.dylib",
-      "#{lib}/libpoppler-qt6.dylib",
+      "#{lib}/libpoppler-qt5.dylib",
       *Dir["#{bin}/*"],
     ].each do |f|
       macho = MachO.open(f)

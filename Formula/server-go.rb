@@ -2,8 +2,8 @@ class ServerGo < Formula
   desc "Server for OpenIoTHub"
   homepage "https://github.com/OpenIoTHub/server-go"
   url "https://github.com/OpenIoTHub/server-go.git",
-      tag:      "v1.1.63",
-      revision: "3a39ca0e628119fa303d1d2ab202eba4e9c10897"
+      tag:      "v1.1.68",
+      revision: "fa299e3d34a1d29a2fc4a0671e50f1aaa89f3b3e"
   license "MIT"
 
   livecheck do
@@ -12,9 +12,9 @@ class ServerGo < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, big_sur:  "f58211fa3930e3fdc4d07204f995f8295db85e9d052f6e5e466899882a3f3733"
-    sha256 cellar: :any_skip_relocation, catalina: "316b6227256a8ebe3d79a54279ce9c39db0b592836229608a2848198584b4bbf"
-    sha256 cellar: :any_skip_relocation, mojave:   "92a60704673640d7b30e6a5727bc6799a26f0160b84e20a4778b07d513945c13"
+    sha256 cellar: :any_skip_relocation, big_sur:  "2641e0d55eea433b6c1f5ac0571328f4c53d202a4f93085da975e561cf338905"
+    sha256 cellar: :any_skip_relocation, catalina: "3b44ef9a5392949b5c432f7cb5505ff1b4a5ba860584d286f846464498916fae"
+    sha256 cellar: :any_skip_relocation, mojave:   "9092c9756a2d7b45fe1ab9bb63d8b0e84c556880369512b4fc86f7b49d0b0109"
   end
 
   depends_on "go" => :build
