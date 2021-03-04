@@ -123,6 +123,11 @@ class GimmeAwsCreds < Formula
     sha256 "de3eedaad74a2683334e282005cd8d7f22f4d55fa690a2a1020a416cb0a47e73"
   end
 
+  resource "ctap-keyring-device" do
+    url "https://files.pythonhosted.org/packages/76/1a/7fa0b16ee05923796d480b6e5fabd98eab126e941830593e74de2c4b396f/ctap-keyring-device-1.0.4.tar.gz"
+    sha256 "7d0793048e6d983f181863cb6dc1937efe7e68584d629e31183e8ae5d92b1be6"
+  end
+
   def install
     virtualenv_install_with_resources
   end
