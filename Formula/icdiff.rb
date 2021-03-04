@@ -8,7 +8,7 @@ class Icdiff < Formula
 
   bottle :unneeded
 
-  depends_on "python@3.9" if MacOS.version <= :mojave
+  depends_on "python@3.9"
 
   def install
     bin.install "icdiff", "git-icdiff"
