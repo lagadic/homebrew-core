@@ -3,7 +3,7 @@ class Citus < Formula
   homepage "https://www.citusdata.com"
   url "https://github.com/citusdata/citus/archive/v10.0.2.tar.gz"
   sha256 "a87381db7b26078955d733270a9adfdcdf1ec5ce5a698d475d86b5e65ae6a157"
-  license "AGPL-3.0-or-later"
+  license "AGPL-3.0-only"
   head "https://github.com/citusdata/citus.git"
 
   bottle do
