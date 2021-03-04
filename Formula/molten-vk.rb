@@ -13,7 +13,7 @@ class MoltenVk < Formula
 
   depends_on "cmake" => :build
   depends_on "python@3.9" => :build
-  depends_on xcode: ["11.0", :build]
+  depends_on xcode: ["12.0", :build]
   # Requires IOSurface/IOSurfaceRef.h.
   depends_on macos: :sierra
 
