@@ -1,10 +1,9 @@
 class Midgard2 < Formula
   desc "Generic content repository for web and desktop applications"
   homepage "http://www.midgard-project.org/"
-  url "https://github.com/downloads/midgardproject/midgard-core/midgard2-core-12.09.tar.gz"
-  sha256 "7c1d17e061df8f3b39fd8944ab97ab7220219b470f7874e74471702d2caca2cb"
+  url "https://github.com/midgardproject/midgard-core/archive/12.09.1.tar.gz"
+  sha256 "edb55ab36abb66cc4ebf49d679ca81683bff77a172a332d65d299caa8a46c766"
   license "LGPL-2.0"
-  revision 2
 
   bottle do
     sha256 arm64_big_sur: "60df7b2c0c5128949c9ad6c8cea8bce50b2abbbf1405da2e2a7681745eea90d0"
