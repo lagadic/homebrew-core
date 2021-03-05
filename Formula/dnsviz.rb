@@ -3,15 +3,15 @@ class Dnsviz < Formula
 
   desc "Tools for analyzing and visualizing DNS and DNSSEC behavior"
   homepage "https://github.com/dnsviz/dnsviz/"
-  url "https://files.pythonhosted.org/packages/64/77/b0a03044bda0fc57581dbac832ad974b47fafda6fe0f1efd9394d7dac0ea/dnsviz-0.9.1.tar.gz"
-  sha256 "368b25ce506c8f5ce0ce9e5a4b1817ace3459bd65883eb3edf6011e2a3a4b330"
+  url "https://files.pythonhosted.org/packages/ef/17/6c951f6815b01d6a35603e6c4cf15ff697a64273cd2717e1445946d8123f/dnsviz-0.9.2.tar.gz"
+  sha256 "e2d2751f2e2facc2a49ff30f75a0771f4156dee0bda9e888bd8f09fca7212795"
   license "GPL-2.0-or-later"
 
   bottle do
-    sha256 cellar: :any, arm64_big_sur: "a7198e45539b7bbee521cb2433670269c98cce7e47f8d511503323cdfe8c110e"
-    sha256 cellar: :any, big_sur:       "d4f4e549c3184c0e7bf1ab1639e096b5eb53e2ee4f00a2015c84cc2991eb80f6"
-    sha256 cellar: :any, catalina:      "ef016731870649b2f385f19e3f2750fe7a3ec1597232943f6c30539e2a80daec"
-    sha256 cellar: :any, mojave:        "7cba6ba3c4ed08f3dbb8d992077dac4b73cff72a61d6020aa45ccd7c6c0a3c2a"
+    sha256 cellar: :any, arm64_big_sur: "e5a805a5cafe74d1364077901b26f0899538424af771ee4115b5f323344cf5e3"
+    sha256 cellar: :any, big_sur:       "9dbc6cd49867764480cf482dafa8a94eae56c1263b38f649e1e14795abcf1210"
+    sha256 cellar: :any, catalina:      "1add24b1469e000acdbc8da9e4b9272c84d7fc54052e45d50405419f1add8d07"
+    sha256 cellar: :any, mojave:        "5e7c4ffb3e9356299e9ff04efc282b2e809a06313c47b7f0c26628cf785177ee"
   end
 
   depends_on "pkg-config" => :build
@@ -37,8 +37,8 @@ class Dnsviz < Formula
   end
 
   resource "pygraphviz" do
-    url "https://files.pythonhosted.org/packages/1e/19/acf3b8dbd378a2b38c6d9aaa6fa9fcd9f7b4aea5fcd3460014999ff92b3c/pygraphviz-1.6.zip"
-    sha256 "411ae84a5bc313e3e1523a1cace59159f512336318a510573b47f824edef8860"
+    url "https://files.pythonhosted.org/packages/3a/d6/2c56f09ee83dbebb62c40487e4c972135661b9984fec9b30b77fb497090c/pygraphviz-1.7.zip"
+    sha256 "a7bec6609f37cf1e64898c59f075afd659106cf9356c5f387cecaa2e0cdb2304"
   end
 
   def install

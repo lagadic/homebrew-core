@@ -3,16 +3,16 @@ class Snakemake < Formula
 
   desc "Pythonic workflow system"
   homepage "https://snakemake.readthedocs.io/"
-  url "https://files.pythonhosted.org/packages/46/2a/2cb04ee9c9bc9a5c97ea01da2693560f80f4f7a7aadc5f9d54cd27c3fa20/snakemake-6.0.0.tar.gz"
-  sha256 "11ad688728332ff98653322385480143e31edf5d68685431b397d191beabf626"
+  url "https://files.pythonhosted.org/packages/80/4d/dcc495c6248ce3e8cee09c4578774be31a5429afcc3f2a225a4fac53f1d3/snakemake-6.0.2.tar.gz"
+  sha256 "1fc6ae36615308fed8887844c10d576b39292c508775a0365d2d27a1bb958ee0"
   license "MIT"
   head "https://github.com/snakemake/snakemake.git"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_big_sur: "37458b386a57beecf631518a9df3d3f2b78386daffa9ffd526363d3db13f8f73"
-    sha256 cellar: :any_skip_relocation, big_sur:       "2fe199274ef299a0e5870c3fa712cd52c4b8e66711ca7a2f9ebdc9f4af4ccfb2"
-    sha256 cellar: :any_skip_relocation, catalina:      "60cfad860d00a47b6723ccfe15f26539e0205626e264a9a157e25a3832e80ed5"
-    sha256 cellar: :any_skip_relocation, mojave:        "5f55f9291d504a6cc4ff660ff08750d3ad1c68c44a342ed78132190f16b266f7"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "5dbde52722b2bf7cd3d7f24ccf27b1cdc099f558b2e88d26aea00ea02d33a6d2"
+    sha256 cellar: :any_skip_relocation, big_sur:       "df34b325e4d7e2cb908f0f5b2b5ba55f26ec7cf21ed5fd43002480d959981fbb"
+    sha256 cellar: :any_skip_relocation, catalina:      "c5c6489e6881382500da7cee78f0e65ca8a40341abffe2427418a78504626016"
+    sha256 cellar: :any_skip_relocation, mojave:        "8b1fc536a20e00f512eab2bf1371b9f95a16d5b4d2ee7b2f6d3e846a29bec35e"
   end
 
   depends_on "cbc"
@@ -69,8 +69,8 @@ class Snakemake < Formula
   end
 
   resource "GitPython" do
-    url "https://files.pythonhosted.org/packages/d4/a9/60a66a0e8b452726cfc5939242ffa7158c1a9a78ff628bd4540b49156240/GitPython-3.1.13.tar.gz"
-    sha256 "8621a7e777e276a5ec838b59280ba5272dd144a18169c36c903d8b38b99f750a"
+    url "https://files.pythonhosted.org/packages/5f/f2/ea3242d97695451ab1521775a85253e002942d2c8f4519ae1172c0f5f979/GitPython-3.1.14.tar.gz"
+    sha256 "be27633e7509e58391f10207cd32b2a6cf5b908f92d9cd30da2e514e1137af61"
   end
 
   resource "idna" do

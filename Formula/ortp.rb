@@ -1,16 +1,16 @@
 class Ortp < Formula
   desc "Real-time transport protocol (RTP, RFC3550) library"
   homepage "https://www.linphone.org/technical-corner/ortp"
-  url "https://gitlab.linphone.org/BC/public/ortp/-/archive/4.4.32/ortp-4.4.32.tar.bz2"
-  sha256 "ce33d566fee48f6441a27feea5947aae3e09795a19af28588d856bb06ec7a7f6"
+  url "https://gitlab.linphone.org/BC/public/ortp/-/archive/4.4.33/ortp-4.4.33.tar.bz2"
+  sha256 "89edfdbc92ed5c27e4c35de64de07934a9db6e2579f8dde5f8a14d7df3cf9768"
   license "GPL-3.0-or-later"
   head "https://gitlab.linphone.org/BC/public/ortp.git"
 
   bottle do
-    sha256 arm64_big_sur: "7e51ec1f081f3d37274ff3ace01f43bc5bf0e8105eae4759610ac5e48ff56bc1"
-    sha256 big_sur:       "5d3d37388c5ec9afdb5b957e30a98504eac553ea841f00b465d4650419b5a857"
-    sha256 catalina:      "aec6918b47e90a3661b742fa3e6b03ed315992f051b6f04d0f70d6c1ea73e108"
-    sha256 mojave:        "ce8604af64d1f5562847ee1f427e4afe10b40c0a498d0d248b62814273560bde"
+    sha256 arm64_big_sur: "29f49cb6278f9d2789b356532e6ca6044eaa5551fddb26e32e4d08c3fc890003"
+    sha256 big_sur:       "196c32a21c33f519a568f2dc80fa036ad33231c945f678e73a60f6c256e738d2"
+    sha256 catalina:      "0f73a234c5ec22bcdc326a1961bc1138c841bad878f4b56980f019967a0ea7d8"
+    sha256 mojave:        "c90f847eb30d9fa0ed91bbd66c9e0c6770028c232ce8a7bbc35a4ba1495a8186"
   end
 
   depends_on "cmake" => :build

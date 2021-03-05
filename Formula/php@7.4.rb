@@ -2,17 +2,16 @@ class PhpAT74 < Formula
   desc "General-purpose scripting language"
   homepage "https://www.php.net/"
   # Should only be updated if the new version is announced on the homepage, https://www.php.net/
-  url "https://www.php.net/distributions/php-7.4.15.tar.xz"
-  mirror "https://fossies.org/linux/www/php-7.4.15.tar.xz"
-  sha256 "9b859c65f0cf7b3eff9d4a28cfab719fb3d36a1db3c20d874a79b5ec44d43cb8"
+  url "https://www.php.net/distributions/php-7.4.16.tar.xz"
+  mirror "https://fossies.org/linux/www/php-7.4.16.tar.xz"
+  sha256 "1c16cefaf88ded4c92eed6a8a41eb682bb2ef42429deb55f1c4ba159053fb98b"
   license "PHP-3.01"
-  revision 1
 
   bottle do
-    sha256 arm64_big_sur: "dda32679c342b8b2583e387053e673ba17c529f30aa4f1f781a42a802560db62"
-    sha256 big_sur:       "51e0b9a37e2962dcea2385a94a69d53f3f8d20221269db318bb3851869d9f92d"
-    sha256 catalina:      "1a8d41ab0ec3547dfff7b326142a730f62be9bd5a3eb1acf982485ff85d627ff"
-    sha256 mojave:        "c41fa924c6d30172c39c905e94204709fd953e8ce0d1fe32226352ff76eabb0d"
+    sha256 arm64_big_sur: "3d8f32719809271463e0fa2a6df17cf0f7366fad12a872a9f85e74e29a71470d"
+    sha256 big_sur:       "9fe2442ca2be2fd0b4af1876dc83176fe9b575dbf66528fa9fdbbd57bfeb38d3"
+    sha256 catalina:      "96b0767f4d6c2c4757d1d2fa47d42009be1664d0d2df3c38bbbc0132790eb97c"
+    sha256 mojave:        "e17c40aa2b61bf892245cdb6db158be9bd151cef06d86c44b75bb9159b597662"
   end
 
   keg_only :versioned_formula
@@ -432,7 +431,7 @@ class PhpAT74 < Formula
       Process.wait(pid)
 
       fpm_pid = fork do
-        exec sbin/"php-fpm", "-y", "fpm.conf"
+        exec sbin/"php-fpm", "--allow-to-run-as-root", "-y", "fpm.conf"
       end
       pid = fork do
         exec Formula["httpd"].opt_bin/"httpd", "-X", "-f", "#{testpath}/httpd-fpm.conf"
