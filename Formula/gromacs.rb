@@ -3,6 +3,7 @@ class Gromacs < Formula
   homepage "https://www.gromacs.org/"
   url "https://ftp.gromacs.org/pub/gromacs/gromacs-2021.1.tar.gz"
   sha256 "bc1d0a75c134e1fb003202262fe10d3d32c59bbb40d714bc3e5015c71effe1e5"
+  license "LGPL-2.1-or-later"
 
   livecheck do
     url "https://ftp.gromacs.org/pub/gromacs/"
