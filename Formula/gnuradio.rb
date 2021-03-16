@@ -6,13 +6,13 @@ class Gnuradio < Formula
   url "https://github.com/gnuradio/gnuradio/releases/download/v3.9.0.0/gnuradio-3.9.0.0.tar.xz"
   sha256 "0a2622933c96a4b22405c7656b8af0db32762834317ec2b90bff0a0a5a4f75cb"
   license "GPL-3.0-or-later"
-  revision 1
+  revision 3
   head "https://github.com/gnuradio/gnuradio.git"
 
   bottle do
-    sha256 big_sur:  "4a1926aef8486d592cc29e3b935004eea361b973c4576be0c1b6a9e63ffd0305"
-    sha256 catalina: "642acfb1da4f27c09613f31d66a16677afa67ea66454e286da6e5a6e08392eaf"
-    sha256 mojave:   "445d59b2fc7603dc6edc30e9a27bff386ff37a51fe09bb59a801c10fe308e401"
+    sha256 big_sur:  "704874cf05f78628123ff2200d33dfe4f1478062bdb3e478c4fe27dd85d7a093"
+    sha256 catalina: "5ccb4f1a85fdb7710152deec42165858b3b70c16f00dfa2a42a0534021771049"
+    sha256 mojave:   "4854e1b3c6b2398305e5f731187f0c0d38c1b8844549aa7f3d8f672633d24a97"
   end
 
   depends_on "cmake" => :build
@@ -25,11 +25,12 @@ class Gnuradio < Formula
   depends_on "gmp"
   depends_on "gsl"
   depends_on "gtk+3"
+  depends_on "jack"
   depends_on "log4cpp"
   depends_on "numpy"
   depends_on "portaudio"
   depends_on "pygobject3"
-  depends_on "pyqt"
+  depends_on "pyqt@5"
   depends_on "python@3.9"
   depends_on "qt@5"
   depends_on "qwt"
@@ -81,7 +82,6 @@ class Gnuradio < Formula
 
   def install
     ENV.cxx11
-    ENV.prepend_path "PATH", Formula["qt"].opt_bin.to_s
 
     ENV["XML_CATALOG_FILES"] = etc/"xml/catalog"
 
@@ -110,8 +110,8 @@ class Gnuradio < Formula
       -DPYTHON_VERSION_MAJOR=3
       -DQWT_LIBRARIES=#{Formula["qwt"].lib}/qwt.framework/qwt
       -DQWT_INCLUDE_DIRS=#{Formula["qwt"].lib}/qwt.framework/Headers
-      -DCMAKE_PREFIX_PATH=#{Formula["qt"].opt_lib}
-      -DQT_BINARY_DIR=#{Formula["qt"].opt_bin}
+      -DCMAKE_PREFIX_PATH=#{Formula["qt@5"].opt_lib}
+      -DQT_BINARY_DIR=#{Formula["qt@5"].opt_bin}
       -DENABLE_TESTING=OFF
       -DENABLE_INTERNAL_VOLK=OFF
     ]

@@ -1,8 +1,8 @@
 class Earthly < Formula
   desc "Build automation tool for the container era"
   homepage "https://earthly.dev/"
-  url "https://github.com/earthly/earthly/archive/v0.5.4.tar.gz"
-  sha256 "51890c6cd4c269f5414091c0e30ae240871f07aaa39bfc867fef7403e2193cc8"
+  url "https://github.com/earthly/earthly/archive/v0.5.7.tar.gz"
+  sha256 "7af5932634560339a02160e875ff8086070ab13845b86a024cb363c081b80cbc"
   license "BUSL-1.1"
   head "https://github.com/earthly/earthly.git"
 
@@ -12,17 +12,17 @@ class Earthly < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_big_sur: "96c082fd77293140b50a602a93bf5f40f59b262c532973334baa4ada8fcc4c78"
-    sha256 cellar: :any_skip_relocation, big_sur:       "c21141390522a59074123624c5564aaef8caa1e1e9d507846a1d78d35eed9aa0"
-    sha256 cellar: :any_skip_relocation, catalina:      "e416d54d0d327d8143d071852cf9454d7de8e015b2a117ef8fc7b947876c2faf"
-    sha256 cellar: :any_skip_relocation, mojave:        "07e94a1265811798006285f81351691c2df32dcc9cb7a55168018e9b157d1e20"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "e2fe31d951bb55ce0620aef79fbcff2f5eeb878b1760676049ef4d3ef0a4311a"
+    sha256 cellar: :any_skip_relocation, big_sur:       "a520a5b1387918313025ed0644a6ce71eca81a86cd857208f408ab089bf86d21"
+    sha256 cellar: :any_skip_relocation, catalina:      "f96a3975cfd7c9f9a286aeebbfdea9e282e1de88dd37dded04bf4d33b46f2dd8"
+    sha256 cellar: :any_skip_relocation, mojave:        "6cf6686ddd864fb35c4db0d2d75867037b6d56755fe950f48f8e5ba5418dcc6d"
   end
 
   depends_on "go" => :build
 
   def install
     ldflags = "-X main.DefaultBuildkitdImage=earthly/buildkitd:v#{version} -X main.Version=v#{version} -X" \
-              " main.GitSha=4a161eb9fc46344715a8aeff40e0eeeb1123ea84 "
+              " main.GitSha=a594127c65663967f5fd6b5215e8292ba372c1b1 "
     tags = "dfrunmount dfrunsecurity dfsecrets dfssh dfrunnetwork"
     system "go", "build",
         "-tags", tags,

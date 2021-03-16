@@ -2,8 +2,8 @@ class K3sup < Formula
   desc "Utility to create k3s clusters on any local or remote VM"
   homepage "https://k3sup.dev"
   url "https://github.com/alexellis/k3sup.git",
-      tag:      "0.10.0",
-      revision: "2b1a3914605faadd3a1c43436cf4634510bd553c"
+      tag:      "0.10.1",
+      revision: "7ff6f60c0bbb78e79db29539b0973d630fb32eff"
   license "MIT"
   head "https://github.com/alexellis/k3sup.git"
 
@@ -14,10 +14,10 @@ class K3sup < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_big_sur: "fe19fba4ad87db2cb2392f6ef35f67411474be186873d28b45b0dad2a5b9d187"
-    sha256 cellar: :any_skip_relocation, big_sur:       "0cb4adfc80d187190a1608247c35bee1b60916b3529e9189abb0cbb7b86dffa9"
-    sha256 cellar: :any_skip_relocation, catalina:      "efb5763f36f789c9df24a68cc7716359bb76f01ca7d470ed2a43c0d532ef9d0f"
-    sha256 cellar: :any_skip_relocation, mojave:        "10c68c168c1af5e94c153329a82d2685cf4a2ac4677a2ab62c1433e5e6101438"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "399eef48ae6c99670ae155702342a029bc2a968b76989b923a0a1e172c5edc6d"
+    sha256 cellar: :any_skip_relocation, big_sur:       "fbf53bb9f4254160d26af818d181b37f481022317e64a6f0d44e3111aa27a615"
+    sha256 cellar: :any_skip_relocation, catalina:      "169bd90456da1d96036fed4fbe3ffcecbc41b9a3bd8531500ed420dcac730ef4"
+    sha256 cellar: :any_skip_relocation, mojave:        "d1bac8283437c64e621dd89a8fc18a0ed47f9d164b251a2fdefad08a711591e0"
   end
 
   depends_on "go" => :build

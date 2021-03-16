@@ -4,12 +4,13 @@ class Freerdp < Formula
   url "https://github.com/FreeRDP/FreeRDP/archive/2.3.1.tar.gz"
   sha256 "3ad38d4bdd9cf97bd5425ea280961397129b28660743ab2f90eab88e8342459b"
   license "Apache-2.0"
+  revision 1
 
   bottle do
-    sha256 arm64_big_sur: "02750821918300bf19eaa74d2c33e682e039c56b031bd457ea34c44aa5d1c775"
-    sha256 big_sur:       "6749c4947104700623d490bef618940b61761092dc19c36114f7433d87f89401"
-    sha256 catalina:      "2030c40a5c115c104eca4f0b0486b5a6d4df9db6a58766fab6394ba5c40dc048"
-    sha256 mojave:        "51646ebf8995145dce582aa12915f33393acef1ded829dee409f59dcb62cfeb1"
+    sha256 arm64_big_sur: "4ec216d0970f8275a53edfa8677ee49ab5634905f9610fe0329a9cbec21ae740"
+    sha256 big_sur:       "13cb35f3a63d3ded009eea19ec6ee8fcfd875c5b9296eae6f5f2cb1093fce6ae"
+    sha256 catalina:      "d8e6886ff2809e3192a39f38803378c398a64e3aa6f9f614e60447864aff05e3"
+    sha256 mojave:        "0d9d9e131f4083303afb26ff40a0f90b1a502c4cdfeb49d69506952d5b50dbef"
   end
 
   head do
@@ -39,7 +40,11 @@ class Freerdp < Formula
   end
 
   def install
-    system "cmake", ".", *std_cmake_args, "-DWITH_X11=ON", "-DBUILD_SHARED_LIBS=ON", "-DWITH_JPEG=ON"
+    system "cmake", ".", *std_cmake_args,
+                         "-DWITH_X11=ON",
+                         "-DBUILD_SHARED_LIBS=ON",
+                         "-DWITH_JPEG=ON",
+                         "-DCMAKE_INSTALL_NAME_DIR=#{lib}"
     system "make", "install"
   end
 

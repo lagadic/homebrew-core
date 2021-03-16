@@ -1,8 +1,8 @@
 class Protobuf < Formula
   desc "Protocol buffers (Google's data interchange format)"
   homepage "https://github.com/protocolbuffers/protobuf/"
-  url "https://github.com/protocolbuffers/protobuf/releases/download/v3.15.4/protobuf-all-3.15.4.tar.gz"
-  sha256 "11a116ad0e21b9d32b7c8ac7b6d7883bee995ae1386b306bd045537a0f55526d"
+  url "https://github.com/protocolbuffers/protobuf/releases/download/v3.15.6/protobuf-all-3.15.6.tar.gz"
+  sha256 "a96d66a29df73991ece4d82f04abf242d28f4cdacd7eb0ddf47f75a344a290af"
   license "BSD-3-Clause"
 
   livecheck do
@@ -11,10 +11,10 @@ class Protobuf < Formula
   end
 
   bottle do
-    sha256 cellar: :any, arm64_big_sur: "21acf145d1aa939c5c7890be8fd77ad93003f43783c0766f78b12327852ee6ac"
-    sha256 cellar: :any, big_sur:       "ab11bb136d278e129d649211265e0b96b6833fd1829fb0eb9b42fbe07d3be568"
-    sha256 cellar: :any, catalina:      "438c6713e682c34664ed1e16fa8583ab7d46d9f5db06eccb356552b6c0aa9f3d"
-    sha256 cellar: :any, mojave:        "a48ade575e2a1e1d63e8a9109528594d0eee34a44a72cd45f39c72f9a8fb4368"
+    sha256 cellar: :any, arm64_big_sur: "9796999e817e40e4fffeb8db15a5a33f636f04513e4bc70d4f4a09aa5a30951b"
+    sha256 cellar: :any, big_sur:       "4af36392a6b3285041622528744eec0957774bd3b12232a570dc063f7d0f3c42"
+    sha256 cellar: :any, catalina:      "c67ec46a5a2bd323a92aff5ba016b36d69b85f59cf80286322e76d5e624ff1b1"
+    sha256 cellar: :any, mojave:        "5ba63d697ceb2452575f19d86220aa09c157059a89b1a2b9c9018a471f07cf6a"
   end
 
   head do
@@ -26,9 +26,6 @@ class Protobuf < Formula
   end
 
   depends_on "python@3.9" => [:build, :test]
-
-  conflicts_with "percona-server", "percona-xtrabackup",
-    because: "both install libprotobuf(-lite) libraries"
 
   resource "six" do
     url "https://files.pythonhosted.org/packages/6b/34/415834bfdafca3c5f451532e8a8d9ba89a21c9743a0c59fbd0205c7f9426/six-1.15.0.tar.gz"

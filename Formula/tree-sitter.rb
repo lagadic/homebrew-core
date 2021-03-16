@@ -3,16 +3,16 @@ require "language/node"
 class TreeSitter < Formula
   desc "Parser generator tool and incremental parsing library"
   homepage "https://tree-sitter.github.io/"
-  url "https://github.com/tree-sitter/tree-sitter/archive/v0.19.1.tar.gz"
-  sha256 "2ba7e645b7eb52e5fdbb16af028addf10bb3203c711156e6c3646e17feeae7e7"
+  url "https://github.com/tree-sitter/tree-sitter/archive/v0.19.3.tar.gz"
+  sha256 "cb01e1832758efe2fd3456e0a6eb0e5aba0e1e11b652c945db70793c2c4f7c2b"
   license "MIT"
   head "https://github.com/tree-sitter/tree-sitter.git"
 
   bottle do
-    sha256 cellar: :any, arm64_big_sur: "a2b913cd23a695917c082069a53a8b70cb9a32325b2d3d846d3b658f6e40e180"
-    sha256 cellar: :any, big_sur:       "178e1c3141517eda62c46d5271197fe941b2344cb2d0f03291a0ba21c07edfc0"
-    sha256 cellar: :any, catalina:      "61f3e264f9ccf3725adc5206c4a24b37dda969c35d0f8817e65d52c298b187ed"
-    sha256 cellar: :any, mojave:        "c17b8593929b7b6264d77e417250d6a646da5fddfc13eaae140786b89e8bf5b3"
+    sha256 cellar: :any, arm64_big_sur: "5a1a7bf5733fc672995798e0f10a65949b4e87b2630619fb7b1df6c0178f1fb1"
+    sha256 cellar: :any, big_sur:       "f32fec8c786b23a34b039af879962807cb2537c3c0383a03c77a3b70ffb6ee22"
+    sha256 cellar: :any, catalina:      "c1fb5dbc938b5aacd0fcddd07a675b1da6e4204597c387c3a8a043a3c8d435f1"
+    sha256 cellar: :any, mojave:        "7c0cea83530cf82d68707fe833844d1f57b09136170d05246992b437a06ed0e1"
   end
 
   depends_on "emscripten" => [:build, :test]

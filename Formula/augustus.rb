@@ -13,18 +13,21 @@ class Augustus < Formula
   end
 
   bottle do
-    sha256 cellar: :any, arm64_big_sur: "03665ee18df08813482e9ad6b91ff670ea332f828f6a0873ceef68dc0d574048"
-    sha256 cellar: :any, big_sur:       "95ce85b389842f3b394dad647c2917ca16609acfdbb6e9b1f949250ac7beb84a"
-    sha256 cellar: :any, catalina:      "9e6fc1d57f48cf314fa418059a9d619a8451d7e65ed8234225e52f311673cf6d"
-    sha256 cellar: :any, mojave:        "476eeca3de3f98c4e539cee89078a3f37f667ae7f47ef375115439154bc23e3c"
-    sha256 cellar: :any, high_sierra:   "b5077e94d1ee68864ed0d89bfc892ad80dcd37b89e149b23733bd9280d54771b"
+    rebuild 1
+    sha256 cellar: :any, arm64_big_sur: "84b334a9bcb3b3fe938616771ea4c845b930f25250c562601f2b2101f35323d8"
+    sha256 cellar: :any, big_sur:       "913e41174da9fae9e1103e74f0afec17f5c6b142a9eeae02062e92b01a7cc244"
+    sha256 cellar: :any, catalina:      "06d0cd1799273e82170582c51f164f7766e56b7110056a9daec94a988de5866d"
+    sha256 cellar: :any, mojave:        "fcc26d38b47776cab3c03193fff49df975d1de141743503753926b861abdea80"
   end
 
   depends_on "boost" => :build
   depends_on "bamtools"
-  depends_on "gcc"
 
   uses_from_macos "zlib"
+
+  on_macos do
+    depends_on "gcc"
+  end
 
   def install
     # Avoid "fatal error: 'sam.h' file not found" by not building bam2wig
@@ -44,12 +47,17 @@ class Augustus < Formula
     # Compile executables for macOS. Tarball ships with executables for Linux.
     system "make", "clean"
 
-    # Clang breaks proteinprofile on macOS. This issue has been first reported
-    # to upstream in 2016 (see https://github.com/nextgenusfs/funannotate/issues/3).
-    # See also https://github.com/Gaius-Augustus/Augustus/issues/64
     cd "src" do
-      gcc_major_ver = Formula["gcc"].any_installed_version.major
-      with_env("HOMEBREW_CC" => Formula["gcc"].opt_bin/"gcc-#{gcc_major_ver}") do
+      on_macos do
+        # Clang breaks proteinprofile on macOS. This issue has been first reported
+        # to upstream in 2016 (see https://github.com/nextgenusfs/funannotate/issues/3).
+        # See also https://github.com/Gaius-Augustus/Augustus/issues/64
+        gcc_major_ver = Formula["gcc"].any_installed_version.major
+        with_env("HOMEBREW_CC" => Formula["gcc"].opt_bin/"gcc-#{gcc_major_ver}") do
+          system "make"
+        end
+      end
+      on_linux do
         system "make"
       end
     end

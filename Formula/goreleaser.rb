@@ -2,16 +2,17 @@ class Goreleaser < Formula
   desc "Deliver Go binaries as fast and easily as possible"
   homepage "https://goreleaser.com/"
   url "https://github.com/goreleaser/goreleaser.git",
-      tag:      "v0.158.0",
-      revision: "4f7968316f8be742f24c419fa42a5d5f487791a9"
+      tag:      "v0.159.0",
+      revision: "c1f9be42e43221793c76ae2b919c3283c0ab6e29"
   license "MIT"
+  revision 1
   head "https://github.com/goreleaser/goreleaser.git"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_big_sur: "266f90115bdc6529e6d292109dc9da563f244c6f3af9752b3695c7a28709b453"
-    sha256 cellar: :any_skip_relocation, big_sur:       "5ed58795187845e740dfa987fc918f411defe02a25286e1aa2b717afe5ccd28b"
-    sha256 cellar: :any_skip_relocation, catalina:      "0a986999d72e8a2667e59e5c90a9a20624651ff850cc592684ef90b07e62663d"
-    sha256 cellar: :any_skip_relocation, mojave:        "347cefc456ef6fb34f00a67ee59f78b23ba97595740ec8c4c449bdb811b65bfe"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "d1277794d727dcb1b58959f55f49fe819555cd02a08f5f9e486f422fe5bfac66"
+    sha256 cellar: :any_skip_relocation, big_sur:       "1ce69364d2cebafb45e937817282fa37ba01e00970659ef76789b1a5b72d5ff0"
+    sha256 cellar: :any_skip_relocation, catalina:      "edb6425e43a2acb5b624847f22e7bc592c8f88ab4609c650d7044e708df827b0"
+    sha256 cellar: :any_skip_relocation, mojave:        "5e1694cb19936a9e4b5d5b49a6e42e0052ea7542f82434c57a3b2115376fd7f7"
   end
 
   depends_on "go" => :build
@@ -20,6 +21,16 @@ class Goreleaser < Formula
     system "go", "build", "-ldflags",
              "-s -w -X main.version=#{version} -X main.commit=#{Utils.git_head} -X main.builtBy=homebrew",
              *std_go_args
+
+    # Install shell completions
+    output = Utils.safe_popen_read("#{bin}/goreleaser", "completion", "bash")
+    (bash_completion/"goreleaser").write output
+
+    output = Utils.safe_popen_read("#{bin}/goreleaser", "completion", "zsh")
+    (zsh_completion/"_goreleaser").write output
+
+    output = Utils.safe_popen_read("#{bin}/goreleaser", "completion", "fish")
+    (fish_completion/"goreleaser.fish").write output
   end
 
   test do
